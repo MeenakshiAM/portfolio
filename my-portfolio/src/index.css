@@ -42,10 +42,19 @@ body {
 }
 
 .profile {
-  width: 100%;
+  width: 90%;
   max-width: 360px;
   height: auto;
-  border-radius: 10px;
+  animation: swing ease-out 4s infinite alternate;
+  transform-origin: center -20px;
+}
+@keyframes swing {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 }
 
 @media (max-width: 768px) {
