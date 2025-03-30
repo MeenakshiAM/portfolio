@@ -28,14 +28,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home">
-      <div className="home-content">
-        <h1>Welcome!!!</h1>
-        <p>
-          <span ref={typedElement}></span> {/* Typed.js will type here */}.
-        </p>
+    <section id="home" className="home">
+      <div className="home">
+        <div className="home-content">
+          <h1>Welcome!!!</h1>
+          <p>
+            <span ref={typedElement}></span> {/* Typed.js will type here */}.
+          </p>
+        </div>
+        <img src={profileImg} alt="profile" className="profile" />
       </div>
-      <img src={profileImg} alt="profile" className="profile" />
-    </div>
+    </section>
   );
 }
