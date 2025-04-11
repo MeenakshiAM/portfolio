@@ -2,6 +2,9 @@ import Project from "./components/project";
 import React from "react";
 import "./index.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Remove if not needed
+import news from "./assets/images/news_website.png";
+import portfolio from "./assets/images/portfolio_website.png";
+import QR from "./assets/images/QR_website.png";
 
 const projectList = [
   {
@@ -9,21 +12,21 @@ const projectList = [
     description: "A personal portfolio to showcase my work.",
     github: "https://github.com/yourusername/portfolio",
     live: "https://yourportfolio.com",
-    image: "https://via.placeholder.com/150",
+    image: portfolio,
   },
   {
     title: "QR Code Generator",
     description: "Generate QR codes easily with this app.",
     github: "https://github.com/yourusername/qrcode-app",
     live: "https://qrcodeapp.com",
-    image: "https://via.placeholder.com/150",
+    image: QR,
   },
   {
     title: "News Website",
     description: "Stay updated with the latest news.",
     github: "https://github.com/yourusername/news-app",
     live: "https://newswebsite.com",
-    image: "https://via.placeholder.com/150",
+    image: news,
   },
 ];
 

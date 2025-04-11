@@ -11,6 +11,7 @@ export default function Home() {
         "HELLO My dear lovely visitor",
         "I am MEENAKSHI A M",
         "I'm a Web Developer",
+        "I am currently working on my skills",
         "Let's Create Something Amazing!",
       ],
       typeSpeed: 50,
@@ -33,7 +34,7 @@ export default function Home() {
         <div className="home-content">
           <h1>Welcome!!!</h1>
           <p>
-            <span ref={typedElement}></span> {/* Typed.js will type here */}.
+            <span ref={typedElement}></span>
           </p>
         </div>
         <img src={profileImg} alt="profile" className="profile" />

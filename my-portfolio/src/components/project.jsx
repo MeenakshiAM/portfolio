@@ -1,4 +1,5 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import news from "../assets/images/news_website.png";
 
 export default function Project({ title, description, github, live }) {
   return (

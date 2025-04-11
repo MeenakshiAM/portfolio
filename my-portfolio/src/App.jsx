@@ -8,13 +8,13 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <>
+    <div class="moving-border">
       <Header />
       <Home />
       <Projects />
       <Skills />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }

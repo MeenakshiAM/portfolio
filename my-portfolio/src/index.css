@@ -14,6 +14,9 @@
   height: 100px;
   font-size: 40px;
 }
+.header li {
+  font-size: 30px;
+}
 
 .nav-bar {
   display: flex;
@@ -32,7 +35,7 @@
 *------------------------------------------------------*/
 
 body {
-  background-color: #000000;
+  background: #111;
   color: #efbc49;
 }
 
@@ -41,53 +44,66 @@ body {
 *------------------------------------------------------*/
 .home {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 5%;
   padding: 5% 10%;
   flex-wrap: wrap;
-  gap: 30px; /* Adds spacing between elements */
+  gap: 50px; /* Increased spacing for better balance */
+  background: linear-gradient(35deg, #020202, #333);
+  /* Subtle dark gradient */
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px #333;
 }
 
 .home-content {
-  padding: 5% 0;
   max-width: 600px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .home h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
+  color: #f5b400; /* Gold highlight */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 
 .home p {
   font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ddd;
 }
 
 .profile {
-  width: 90%;
+  width: 100%;
   max-width: 360px;
   height: auto;
-  animation: swing ease-in-out 3s infinite alternate;
-  transform-origin: center -10px;
-  transition: transform 0.3s ease-in-out;
   border-radius: 50%;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 20px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Smooth swinging animation 
-@keyframes swing {
-  0% {
-    transform: rotate(5deg);
+.profile:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 15px 25px rgba(255, 215, 0, 0.5);
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  50% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(5deg);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-*/
+
 /*------------------------------------------------------*
 ************* Projects Section ************
 *------------------------------------------------------*/
@@ -98,12 +114,14 @@ body {
 }
 
 .projects h2 {
+  color: #ccc;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
 /* Grid Layout for 3 Cards per Row */
 .projects-container {
-  margin-top: 50px;
+  margin-top: 70px;
   display: grid; /* Using grid */
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 40px; /* Space between items */
@@ -115,9 +133,9 @@ body {
 
 /* Individual Project Cards */
 .project-card {
-  background: rgb(0, 0, 0);
+  background: linear-gradient(135deg, #020202, #333);
   padding: 15px;
-  border: 5px solid #d28133;
+  border: 2px solid #fdd006;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -125,7 +143,7 @@ body {
   overflow: hidden;
   word-wrap: break-word;
   width: 250px; /* Increased width for better look */
-  height: 300px;
+  height: 350px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -142,6 +160,7 @@ body {
 }
 
 .project-links {
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -219,6 +238,13 @@ body {
 /*--------------------------------------------------
 ***************** CONTACT FORM**********************
 -----------------------------------------------------*/
+.contact-container h2 {
+  font-size: 40px;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
 .contact-container {
   max-width: 400px;
   margin: auto;
@@ -227,6 +253,7 @@ body {
 }
 
 .contact-container form {
+  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -236,17 +263,20 @@ body {
 .contact-container textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #434341;
   border-radius: 5px;
 }
-
+.contact-container textarea {
+  height: 120px;
+}
 .contact-container button {
   padding: 10px;
   background-color: #d28133;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  margin: auto;
+  border-radius: 10px;
 }
 
 .contact-container button:hover {
