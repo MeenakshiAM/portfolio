@@ -1,6 +1,7 @@
 import profileImg from "../assets/images/profile.jpg";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   const typedElement = useRef(null);
@@ -24,7 +25,7 @@ export default function Home() {
     const typed = new Typed(typedElement.current, options);
 
     return () => {
-      typed.destroy(); // Cleanup when component unmounts
+      typed.destroy();
     };
   }, []);
 
@@ -36,6 +37,30 @@ export default function Home() {
           <p>
             <span ref={typedElement}></span>
           </p>
+
+          <div className="social-icons">
+            <a
+              href="https://github.com/MeenakshiAM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="www.linkedin.com/in/meenakshi-a-m"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://x.com/me__ka_4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </a>
+          </div>
         </div>
         <img src={profileImg} alt="profile" className="profile" />
       </div>

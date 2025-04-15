@@ -1,11 +1,25 @@
+import { useState } from "react";
 import { Link } from "react-scroll";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
       <nav className="nav-bar">
         <span>PORTFOLIO</span>
-        <ul className="list">
+
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+        </div>
+
+        <ul className={`list ${isMenuOpen ? "active" : ""}`}>
           <li>
             <Link to="home" smooth={true} duration={500}>
               Home

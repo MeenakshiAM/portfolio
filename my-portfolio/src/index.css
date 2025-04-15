@@ -6,7 +6,6 @@
 /*------------------------------------------------------*
 *************HEADER************
 *------------------------------------------------------*/
-
 .header {
   background-color: #000000;
   color: #d28133;
@@ -14,6 +13,7 @@
   height: 100px;
   font-size: 40px;
 }
+
 .header li {
   font-size: 30px;
 }
@@ -22,12 +22,90 @@
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-bar .list {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+  display: none; /* Hide menu items by default */
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 220px; /* Increase width for more space */
+  position: absolute;
+  top: 100px;
+  right: 0; /* Align the dropdown to the right */
+  background-color: #000000;
+  padding: 20px;
+  z-index: 999;
+  border-radius: 8px; /* Optional: Adding rounded corners */
+}
+
+.nav-bar .list.active {
+  display: flex; /* Show menu items when the hamburger is clicked */
+}
+
+.nav-bar .list li {
+  padding: 5px 0; /* Add padding inside the list items */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #d28133;
+  transition: 0.3s ease-in-out;
+}
+
+/* Change bars to "X" when menu is open */
+.hamburger .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    font-size: 30px;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .header li {
+    font-size: 24px;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar .list,
+  .hamburger {
+    width: auto;
+  }
 }
 
 /*------------------------------------------------------*
@@ -92,6 +170,23 @@ body {
   box-shadow: 0px 15px 25px rgba(255, 215, 0, 0.5);
 }
 
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.8rem;
+}
+
+.social-icons a {
+  color: #d28133;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffc400; /* Or your accent color */
+}
+
 /* Smooth Fade In Animation */
 @keyframes fadeIn {
   from {
@@ -105,26 +200,87 @@ body {
 }
 
 /*------------------------------------------------------*
+************* About Section ************
+*------------------------------------------------------*/
+.about {
+  padding: 80px 20px;
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about h2 {
+  font-size: 2.8rem;
+  color: #fdd006;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.about-text strong {
+  color: #d28133;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #d28133;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/*------------------------------------------------------*
 ************* Projects Section ************
 *------------------------------------------------------*/
-
 .projects {
   padding: 50px;
   text-align: center;
 }
 
 .projects h2 {
-  color: #ccc;
-  font-size: 40px;
+  font-size: 2.8rem;
+  color: #fdd006;
   margin-bottom: 20px;
 }
 
 /* Grid Layout for 3 Cards per Row */
 .projects-container {
   margin-top: 70px;
-  display: grid; /* Using grid */
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 40px; /* Space between items */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
   padding: 20px;
   width: 100%;
   justify-content: center;
@@ -142,9 +298,11 @@ body {
   white-space: normal;
   overflow: hidden;
   word-wrap: break-word;
-  width: 250px; /* Increased width for better look */
+  width: 250px;
   height: 350px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  flex: 0 0 auto; /* For horizontal scroll mode */
+  scroll-snap-align: start; /* For snap effect */
 }
 
 .project-card:hover {
@@ -177,16 +335,20 @@ body {
   color: #d28133;
 }
 
-/* Responsive Fixes */
+/* Responsive Switch to Horizontal Scroll */
 @media (max-width: 1024px) {
   .projects-container {
-    grid-template-columns: repeat(2, 1fr); /* Show 2 cards per row */
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
   }
-}
 
-@media (max-width: 768px) {
-  .projects-container {
-    grid-template-columns: repeat(1, 1fr); /* Show 1 card per row */
+  .project-card {
+    width: 80%; /* Makes cards big enough to swipe through nicely */
+    max-width: 300px;
   }
 }
 
@@ -201,7 +363,8 @@ body {
 }
 
 .skills h2 {
-  font-size: 2rem;
+  font-size: 2.8rem;
+  color: #fdd006;
   margin-bottom: 20px;
 }
 
@@ -210,8 +373,10 @@ body {
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
+/* Individual Skill Card */
 .skill-card {
   background: #222;
   padding: 20px;
@@ -219,6 +384,8 @@ body {
   text-align: center;
   transition: transform 0.3s ease-in-out;
   width: 120px;
+  flex: 0 0 auto; /* For scroll */
+  scroll-snap-align: start;
 }
 
 .skill-card:hover {
@@ -235,13 +402,29 @@ body {
   font-weight: bold;
 }
 
+/* Responsive Horizontal Scroll */
+@media (max-width: 768px) {
+  .skills-container {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .skill-card {
+    width: 100px;
+  }
+}
+
 /*--------------------------------------------------
 ***************** CONTACT FORM**********************
 -----------------------------------------------------*/
 .contact-container h2 {
-  font-size: 40px;
   margin: auto;
-  color: white;
+  font-size: 2.8rem;
+  color: #fdd006;
   text-align: center;
 }
 
@@ -288,54 +471,35 @@ body {
 -----------------------------------------------------*/
 /* Footer Styles */
 .footer {
-  background-color: #333; /* Dark background */
-  color: #b9652d; /* White text */
-  padding: 20px; /* Space around the footer */
-  text-align: center; /* Center the content */
-  font-size: 14px; /* Font size for text */
-  position: relative; /* For positioning if needed */
-  bottom: 0; /* Ensures it's at the bottom */
-  width: 100%; /* Full width */
+  background-color: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 80px;
+  border-top: 1px solid #333;
 }
 
 .footer-content {
-  max-width: 1200px; /* Optional: limits the width */
-  margin: 0 auto; /* Centers the content */
-}
-
-.footer p {
-  margin: 0; /* Removes margin */
-  font-size: 16px; /* Font size for the paragraph */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .footer-links {
-  margin-top: 10px; /* Space between text and links */
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
 }
 
-.footer a {
-  color: #fff; /* Link color */
-  text-decoration: none; /* Removes underline */
-  margin: 0 10px; /* Space between links */
-  font-size: 14px; /* Font size for links */
+.footer-links a {
+  color: #d28133;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-.footer a:hover {
-  text-decoration: underline; /* Underline links when hovered */
-}
-
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-  .footer {
-    padding: 15px; /* Smaller padding for mobile */
-  }
-
-  .footer p {
-    font-size: 14px; /* Smaller text on mobile */
-  }
-
-  .footer a {
-    font-size: 12px; /* Smaller links on mobile */
-  }
+.footer-links a:hover {
+  color: #fdd006;
 }
 
 /*--------------------------------------------------

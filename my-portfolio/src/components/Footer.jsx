@@ -2,22 +2,30 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>Portfolio created by Meenakshi A M</p>
+        <p>
+          &copy; {new Date().getFullYear()} Meenakshi A M. All rights reserved.
+        </p>
         <div className="footer-links">
-          {/* Add any links or icons you want here, for example: */}
           <a
-            href="https://www.linkedin.com/in/your-profile"
+            href="https://github.com/MeenakshiAM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/your-linkedin"
             target="_blank"
             rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           <a
-            href="https://github.com/your-profile"
+            href="https://x.com/me__ka_4"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            Twitter
           </a>
         </div>
       </div>
