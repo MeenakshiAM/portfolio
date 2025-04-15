@@ -35,7 +35,8 @@ Currently sharpening my skills and working on cool side projects. Let's create s
 
 ## 📸 Screenshots
 
-> Add screenshots here if you'd like. You can drag and drop them or link via `![alt](url)`
+![image](https://github.com/user-attachments/assets/2b371d7d-bdf9-4903-abb7-7eafd2cbfc33)
+
 
 ---
 
