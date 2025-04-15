@@ -26,29 +26,19 @@
   width: 100%;
 }
 
+/* ✅ Desktop default styles */
 .nav-bar .list {
-  display: none; /* Hide menu items by default */
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  width: 220px; /* Increase width for more space */
-  position: absolute;
-  top: 100px;
-  right: 0; /* Align the dropdown to the right */
-  background-color: #000000;
-  padding: 20px;
-  z-index: 999;
-  border-radius: 8px; /* Optional: Adding rounded corners */
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
-.nav-bar .list.active {
-  display: flex; /* Show menu items when the hamburger is clicked */
-}
-
+/* List item spacing */
 .nav-bar .list li {
-  padding: 5px 0; /* Add padding inside the list items */
+  padding: 5px 0;
 }
 
+/* Hamburger menu hidden by default (desktop only) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -63,7 +53,7 @@
   transition: 0.3s ease-in-out;
 }
 
-/* Change bars to "X" when menu is open */
+/* Transform bars to X */
 .hamburger .bar.open:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -76,7 +66,9 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Responsive Styles */
+/*------------------------------------------------------*
+************* RESPONSIVE (Mobile) ************
+*------------------------------------------------------*/
 @media (max-width: 768px) {
   .header {
     height: auto;
@@ -96,15 +88,30 @@
     font-size: 24px;
   }
 
+  /* Show hamburger in mobile */
   .hamburger {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .nav-bar .list,
-  .hamburger {
-    width: auto;
+  /* Override default list for mobile */
+  .nav-bar .list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    background-color: #000000;
+    padding: 20px;
+    z-index: 999;
+    border-radius: 8px;
+  }
+
+  .nav-bar .list.active {
+    display: flex;
   }
 }
 
